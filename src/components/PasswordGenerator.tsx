@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
 import { Card, CardContent } from "@/components/ui/card";
 import { Check, Copy, Download, Eye, EyeOff, RefreshCw } from "lucide-react";
 import { PasswordOptions, Language } from "@/types";
@@ -151,20 +152,15 @@ const PasswordGenerator = ({ language }: PasswordGeneratorProps) => {
                 <label className="text-sm">
                   {getTranslation(item.label, language)}
                 </label>
-                <div className="toggle-switch">
-                  <input
-                    type="checkbox"
-                    checked={options[item.key as keyof PasswordOptions] as boolean}
-                    onChange={(e) =>
-                      handleOptionChange(
-                        item.key as keyof PasswordOptions,
-                        e.target.checked
-                      )
-                    }
-                    className="opacity-0 w-0 h-0"
-                  />
-                  <span className="toggle-slider"></span>
-                </div>
+                <Switch
+                  checked={options[item.key as keyof PasswordOptions] as boolean}
+                  onCheckedChange={(checked) =>
+                    handleOptionChange(
+                      item.key as keyof PasswordOptions,
+                      checked
+                    )
+                  }
+                />
               </div>
             ))}
           </div>
