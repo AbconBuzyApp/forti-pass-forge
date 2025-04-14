@@ -2,9 +2,9 @@ import { TranslationKey, Language } from "@/types";
 
 export const translations: TranslationKey = {
   title: {
-    en: "Security Password Generator",
-    fr: "Générateur de Mots de Passe Sécurisés",
-    es: "Generador de Contraseñas Seguras"
+    en: "Fortress Pass Generator",
+    fr: "Générateur Fortress Pass",
+    es: "Generador Fortress Pass"
   },
   subtitle: {
     en: "Generate secure, random passwords for all your accounts",
@@ -72,9 +72,9 @@ export const translations: TranslationKey = {
     es: "Fortaleza de la contraseña"
   },
   footer: {
-    en: "© 2025 FortiPass Generator. All rights reserved.",
-    fr: "© 2025 Générateur FortiPass. Tous droits réservés.",
-    es: "© 2025 Generador FortiPass. Todos los derechos reservados."
+    en: "© 2025 Fortress Pass Generator. All rights reserved.",
+    fr: "© 2025 Générateur Fortress Pass. Tous droits réservés.",
+    es: "© 2025 Generador Fortress Pass. Todos los derechos reservados."
   },
   veryweak: {
     en: "Very Weak",
