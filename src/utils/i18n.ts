@@ -1,11 +1,10 @@
-
 import { TranslationKey, Language } from "@/types";
 
 export const translations: TranslationKey = {
   title: {
-    en: "FortiPass Generator",
-    fr: "Générateur FortiPass",
-    es: "Generador FortiPass"
+    en: "Security Password Generator",
+    fr: "Générateur de Mots de Passe Sécurisés",
+    es: "Generador de Contraseñas Seguras"
   },
   subtitle: {
     en: "Generate secure, random passwords for all your accounts",
