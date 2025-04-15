@@ -1,0 +1,9 @@
+
+# ads.txt for secupasswordgen.netlify.app
+google.com, pub-9618872567193837, DIRECT
+appnexus.com, pub-9618872567193837, DIRECT
+openx.com, pub-9618872567193837, DIRECT
+rubiconproject.com, pub-9618872567193837, DIRECT
+criteo.com, pub-9618872567193837, DIRECT
+amazon-adsystem.com, pub-9618872567193837, DIRECT
+indexexchange.com, pub-9618872567193837, DIRECT
