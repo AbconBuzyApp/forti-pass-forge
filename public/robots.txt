@@ -3,3 +3,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://fortipassgenerator.com/sitemap.xml
+
+User-agent: Mediapartners-Google
+Disallow:
