@@ -1,0 +1,8 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://secupasswordgen.netlify.app/sitemap.xml
+
+User-agent: Mediapartners-Google
+Disallow:
