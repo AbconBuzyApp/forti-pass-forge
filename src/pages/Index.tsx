@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Language } from "@/types";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 import PasswordGenerator from "@/components/PasswordGenerator";
 
 const Index = () => {
@@ -15,19 +15,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen bg-fortipass-soft-gray">
       <Header language={language} onLanguageChange={handleLanguageChange} />
-      
-      <nav className="bg-white shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center space-x-6 py-4">
-            <Link to="/" className="text-gray-700 hover:text-fortipass-purple">Home</Link>
-            <Link to="/about" className="text-gray-700 hover:text-fortipass-purple">About</Link>
-            <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple">Blog</Link>
-            <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple">Privacy</Link>
-            <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple">Legal</Link>
-            <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple">Contact</Link>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
       
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
