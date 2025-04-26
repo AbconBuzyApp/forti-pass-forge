@@ -33,7 +33,7 @@ const Index = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold tracking-tight mb-4">
-              Welcome to SecuPasswordGen
+              Welcome to Fortress Password Generator
             </h1>
             <p className="text-lg text-gray-600 mb-8">
               SecuPasswordGen is a secure and fast online tool for generating robust passwords,
