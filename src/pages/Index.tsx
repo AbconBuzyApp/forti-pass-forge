@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Language } from "@/types";
 import { Link } from "react-router-dom";
@@ -36,7 +35,7 @@ const Index = () => {
               Welcome to Fortress Password Generator
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              SecuPasswordGen is a secure and fast online tool for generating robust passwords,
+              Fortress Password Generator is a secure and fast online tool for generating robust passwords,
               allowing our users to protect their personal and professional information.
             </p>
             
