@@ -21,6 +21,7 @@ const Index = () => {
           <div className="flex justify-center space-x-6 py-4">
             <Link to="/" className="text-gray-700 hover:text-fortipass-purple">Home</Link>
             <Link to="/about" className="text-gray-700 hover:text-fortipass-purple">About</Link>
+            <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple">Blog</Link>
             <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple">Privacy</Link>
             <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple">Legal</Link>
             <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple">Contact</Link>
