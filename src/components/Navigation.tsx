@@ -4,9 +4,51 @@ import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { Language } from "@/types";
 
-const Navigation = () => {
+interface NavigationProps {
+  language: Language;
+}
+
+const Navigation = ({ language }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const getNavText = (key: string) => {
+    const translations: Record<string, Record<Language, string>> = {
+      home: {
+        en: "Home",
+        fr: "Accueil",
+        es: "Inicio"
+      },
+      about: {
+        en: "About",
+        fr: "À propos",
+        es: "Sobre nosotros"
+      },
+      blog: {
+        en: "Blog",
+        fr: "Blog",
+        es: "Blog"
+      },
+      privacy: {
+        en: "Privacy",
+        fr: "Confidentialité",
+        es: "Privacidad"
+      },
+      legal: {
+        en: "Legal",
+        fr: "Mentions légales",
+        es: "Legal"
+      },
+      contact: {
+        en: "Contact",
+        fr: "Contact",
+        es: "Contacto"
+      }
+    };
+
+    return translations[key][language];
+  };
 
   return (
     <nav className="bg-white shadow-sm">
@@ -20,23 +62,23 @@ const Navigation = () => {
             </SheetTrigger>
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-8">
-                <Link to="/" className="text-gray-700 hover:text-fortipass-purple">Home</Link>
-                <Link to="/about" className="text-gray-700 hover:text-fortipass-purple">About</Link>
-                <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple">Blog</Link>
-                <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple">Privacy</Link>
-                <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple">Legal</Link>
-                <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple">Contact</Link>
+                <Link to="/" className="text-gray-700 hover:text-fortipass-purple">{getNavText("home")}</Link>
+                <Link to="/about" className="text-gray-700 hover:text-fortipass-purple">{getNavText("about")}</Link>
+                <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple">{getNavText("blog")}</Link>
+                <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple">{getNavText("privacy")}</Link>
+                <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple">{getNavText("legal")}</Link>
+                <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple">{getNavText("contact")}</Link>
               </div>
             </SheetContent>
           </Sheet>
         </div>
         <div className="hidden md:flex justify-center space-x-6 py-4">
-          <Link to="/" className="text-gray-700 hover:text-fortipass-purple">Home</Link>
-          <Link to="/about" className="text-gray-700 hover:text-fortipass-purple">About</Link>
-          <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple">Blog</Link>
-          <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple">Privacy</Link>
-          <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple">Legal</Link>
-          <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple">Contact</Link>
+          <Link to="/" className="text-gray-700 hover:text-fortipass-purple">{getNavText("home")}</Link>
+          <Link to="/about" className="text-gray-700 hover:text-fortipass-purple">{getNavText("about")}</Link>
+          <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple">{getNavText("blog")}</Link>
+          <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple">{getNavText("privacy")}</Link>
+          <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple">{getNavText("legal")}</Link>
+          <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple">{getNavText("contact")}</Link>
         </div>
       </div>
     </nav>
