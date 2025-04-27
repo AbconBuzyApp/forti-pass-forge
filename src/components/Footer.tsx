@@ -21,6 +21,9 @@ const Footer = ({ language }: FooterProps) => {
             Mentions légales
           </Link>
           <Link to="/privacy" className="text-sm text-gray-500 hover:text-fortipass-purple transition-colors">
+            Politique de confidentialité
+          </Link>
+          <Link to="/privacy" className="text-sm text-gray-500 hover:text-fortipass-purple transition-colors">
             Conditions d'utilisation
           </Link>
           <Link to="/contact" className="text-sm text-gray-500 hover:text-fortipass-purple transition-colors">
