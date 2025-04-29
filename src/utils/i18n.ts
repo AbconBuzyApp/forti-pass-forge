@@ -1,3 +1,4 @@
+
 import { TranslationKey, Language } from "@/types";
 
 export const translations: TranslationKey = {
@@ -100,6 +101,11 @@ export const translations: TranslationKey = {
     en: "Very Strong",
     fr: "Très fort",
     es: "Muy fuerte"
+  },
+  blogArticleTitle: {
+    en: "Ultimate Guide: Creating Unbreakable Passwords in 2025",
+    fr: "Guide Ultime: Créer des Mots de Passe Inviolables en 2025",
+    es: "Guía Definitiva: Crear Contraseñas Inquebrantables en 2025"
   }
 };
 
