@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
@@ -11,27 +12,34 @@ import Legal from "./pages/Legal";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
+import CookieConsent from "./components/CookieConsent";
+import { Language } from "./types";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About language="en" />} />
-          <Route path="/privacy" element={<Privacy language="en" />} />
-          <Route path="/legal" element={<Legal language="en" />} />
-          <Route path="/contact" element={<Contact language="en" />} />
-          <Route path="/blog" element={<Blog language="en" />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [language, setLanguage] = useState<Language>("en");
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About language="en" />} />
+            <Route path="/privacy" element={<Privacy language="en" />} />
+            <Route path="/legal" element={<Legal language="en" />} />
+            <Route path="/contact" element={<Contact language="en" />} />
+            <Route path="/blog" element={<Blog language="en" />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <CookieConsent language={language} />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

@@ -106,6 +106,21 @@ export const translations: TranslationKey = {
     en: "Ultimate Guide: Creating Unbreakable Passwords in 2025",
     fr: "Guide Ultime: Créer des Mots de Passe Inviolables en 2025",
     es: "Guía Definitiva: Crear Contraseñas Inquebrantables en 2025"
+  },
+  cookieConsent: {
+    en: "We use cookies to optimize your browsing experience on this site.",
+    fr: "Nous utilisons des cookies pour optimiser votre expérience de navigation sur ce site.",
+    es: "Utilizamos cookies para optimizar su experiencia de navegación en este sitio."
+  },
+  accept: {
+    en: "Accept",
+    fr: "Accepter",
+    es: "Aceptar"
+  },
+  decline: {
+    en: "Decline",
+    fr: "Refuser",
+    es: "Rechazar"
   }
 };
 
