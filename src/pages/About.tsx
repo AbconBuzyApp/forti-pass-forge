@@ -30,6 +30,15 @@ const About = ({ language: initialLanguage }: AboutProps) => {
         </h1>
         
         <div className="space-y-6 text-gray-700">
+          <div className="mb-6">
+            <p className="text-lg font-medium">
+              {language === "fr" ? "Propriétaire de la plateforme:" : 
+               language === "es" ? "Propietario de la plataforma:" : 
+               "Platform Owner:"}
+            </p>
+            <p className="text-xl font-bold">Acrad Conte</p>
+          </div>
+          
           <p className="text-lg">
             {language === "fr" ? 
               "Fortress Password Generator a été conçu avec un seul objectif en tête : aider les utilisateurs à générer des mots de passe sécurisés et robustes pour protéger leurs informations personnelles et professionnelles." : 
