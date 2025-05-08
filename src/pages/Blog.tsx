@@ -10,19 +10,41 @@ import { Button } from "@/components/ui/button";
 
 interface BlogProps {
   language: Language;
+  onLanguageChange?: (language: Language) => void;
 }
 
-const Blog = ({ language: initialLanguage }: BlogProps) => {
+const Blog = ({ language: initialLanguage, onLanguageChange }: BlogProps) => {
   const [language, setLanguage] = useState<Language>(initialLanguage);
 
   const handleLanguageChange = (newLanguage: Language) => {
     setLanguage(newLanguage);
+    if (onLanguageChange) {
+      onLanguageChange(newLanguage);
+    }
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-fortipass-soft-gray">
       <Header language={language} onLanguageChange={handleLanguageChange} />
       <Navigation language={language} />
+      
+      {/* Main Navigation Links visible on all devices */}
+      <div className="flex justify-center bg-white py-3 shadow-sm mb-4">
+        <div className="container mx-auto flex justify-center space-x-4 md:space-x-8 px-4 flex-wrap">
+          <Link to="/" className="font-medium text-gray-700 hover:text-fortipass-purple py-2">
+            {language === "fr" ? "Accueil" : language === "es" ? "Inicio" : "Home"}
+          </Link>
+          <Link to="/blog" className="font-medium text-fortipass-purple hover:text-fortipass-dark-purple py-2">
+            {language === "fr" ? "Blog" : language === "es" ? "Blog" : "Blog"}
+          </Link>
+          <Link to="/about" className="font-medium text-gray-700 hover:text-fortipass-purple py-2">
+            {language === "fr" ? "À propos" : language === "es" ? "Sobre nosotros" : "About Us"}
+          </Link>
+          <Link to="/contact" className="font-medium text-gray-700 hover:text-fortipass-purple py-2">
+            {language === "fr" ? "Contact" : language === "es" ? "Contacto" : "Contact Us"}
+          </Link>
+        </div>
+      </div>
       
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
@@ -38,7 +60,7 @@ const Blog = ({ language: initialLanguage }: BlogProps) => {
             <p className="text-gray-600 mb-3">{blogArticles[0].date} | {blogArticles[0].author}</p>
             <p className="text-gray-700 mb-6">{blogArticles[0].excerpt[language]}</p>
             <div className="flex justify-between items-center">
-              <Link to={`/blog`} className="text-fortipass-purple hover:text-fortipass-dark-purple font-medium">
+              <Link to={`/blog/${blogArticles[0].slug}`} className="text-fortipass-purple hover:text-fortipass-dark-purple font-medium">
                 {language === "fr" ? "Lire l'article" : 
                  language === "es" ? "Leer artículo" : 
                  "Read article"}
@@ -58,7 +80,7 @@ const Blog = ({ language: initialLanguage }: BlogProps) => {
                 <h3 className="text-xl font-bold mb-2">{article.title[language]}</h3>
                 <p className="text-gray-600 mb-2">{article.date} | {article.author}</p>
                 <p className="text-gray-700 mb-4 line-clamp-3">{article.excerpt[language]}</p>
-                <Link to={`/blog`} className="text-fortipass-purple hover:text-fortipass-dark-purple font-medium">
+                <Link to={`/blog/${article.slug}`} className="text-fortipass-purple hover:text-fortipass-dark-purple font-medium">
                   {language === "fr" ? "Lire la suite" : 
                    language === "es" ? "Leer más" : 
                    "Read more"}

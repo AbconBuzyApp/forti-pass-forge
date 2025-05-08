@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import CookieConsent from "./components/CookieConsent";
 import { Language } from "./types";
+import BlogArticle from "./pages/BlogArticle";
 
 const queryClient = new QueryClient();
 
@@ -31,12 +32,13 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<Index language={language} onLanguageChange={handleLanguageChange} />} />
             <Route path="/about" element={<About language={language} />} />
             <Route path="/privacy" element={<Privacy language={language} />} />
             <Route path="/legal" element={<Legal language={language} />} />
             <Route path="/contact" element={<Contact language={language} />} />
-            <Route path="/blog" element={<Blog language={language} />} />
+            <Route path="/blog" element={<Blog language={language} onLanguageChange={handleLanguageChange} />} />
+            <Route path="/blog/:slug" element={<BlogArticle language={language} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent language={language} />

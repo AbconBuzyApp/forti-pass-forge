@@ -8,11 +8,17 @@ import PasswordGenerator from "@/components/PasswordGenerator";
 import { getTranslation } from "@/utils/i18n";
 import { Link } from "react-router-dom";
 
-const Index = () => {
-  const [language, setLanguage] = useState<Language>("en");
+interface IndexProps {
+  language: Language;
+  onLanguageChange: (language: Language) => void;
+}
+
+const Index = ({ language: initialLanguage, onLanguageChange }: IndexProps) => {
+  const [language, setLanguage] = useState<Language>(initialLanguage);
 
   const handleLanguageChange = (newLanguage: Language) => {
     setLanguage(newLanguage);
+    onLanguageChange(newLanguage);
   };
 
   return (
@@ -20,19 +26,19 @@ const Index = () => {
       <Header language={language} onLanguageChange={handleLanguageChange} />
       <Navigation language={language} />
       
-      {/* Main Navigation Links visible on desktop */}
-      <div className="hidden md:flex justify-center bg-white py-3 shadow-sm mb-4">
-        <div className="container mx-auto flex justify-center space-x-8">
-          <Link to="/" className="font-medium text-fortipass-purple hover:text-fortipass-dark-purple">
+      {/* Main Navigation Links visible on all screen sizes */}
+      <div className="flex justify-center bg-white py-3 shadow-sm mb-4">
+        <div className="container mx-auto flex justify-center space-x-4 md:space-x-8 px-4 flex-wrap">
+          <Link to="/" className="font-medium text-fortipass-purple hover:text-fortipass-dark-purple py-2">
             {language === "fr" ? "Accueil" : language === "es" ? "Inicio" : "Home"}
           </Link>
-          <Link to="/blog" className="font-medium text-gray-700 hover:text-fortipass-purple">
+          <Link to="/blog" className="font-medium text-gray-700 hover:text-fortipass-purple py-2">
             {language === "fr" ? "Blog" : language === "es" ? "Blog" : "Blog"}
           </Link>
-          <Link to="/about" className="font-medium text-gray-700 hover:text-fortipass-purple">
+          <Link to="/about" className="font-medium text-gray-700 hover:text-fortipass-purple py-2">
             {language === "fr" ? "À propos" : language === "es" ? "Sobre nosotros" : "About Us"}
           </Link>
-          <Link to="/contact" className="font-medium text-gray-700 hover:text-fortipass-purple">
+          <Link to="/contact" className="font-medium text-gray-700 hover:text-fortipass-purple py-2">
             {language === "fr" ? "Contact" : language === "es" ? "Contacto" : "Contact Us"}
           </Link>
         </div>
