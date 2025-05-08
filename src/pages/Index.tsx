@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import PasswordGenerator from "@/components/PasswordGenerator";
 import { getTranslation } from "@/utils/i18n";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -18,6 +19,24 @@ const Index = () => {
     <div className="flex flex-col min-h-screen bg-fortipass-soft-gray">
       <Header language={language} onLanguageChange={handleLanguageChange} />
       <Navigation language={language} />
+      
+      {/* Main Navigation Links visible on desktop */}
+      <div className="hidden md:flex justify-center bg-white py-3 shadow-sm mb-4">
+        <div className="container mx-auto flex justify-center space-x-8">
+          <Link to="/" className="font-medium text-fortipass-purple hover:text-fortipass-dark-purple">
+            {language === "fr" ? "Accueil" : language === "es" ? "Inicio" : "Home"}
+          </Link>
+          <Link to="/blog" className="font-medium text-gray-700 hover:text-fortipass-purple">
+            {language === "fr" ? "Blog" : language === "es" ? "Blog" : "Blog"}
+          </Link>
+          <Link to="/about" className="font-medium text-gray-700 hover:text-fortipass-purple">
+            {language === "fr" ? "À propos" : language === "es" ? "Sobre nosotros" : "About Us"}
+          </Link>
+          <Link to="/contact" className="font-medium text-gray-700 hover:text-fortipass-purple">
+            {language === "fr" ? "Contact" : language === "es" ? "Contacto" : "Contact Us"}
+          </Link>
+        </div>
+      </div>
       
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">

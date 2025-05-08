@@ -20,6 +20,10 @@ const queryClient = new QueryClient();
 const App = () => {
   const [language, setLanguage] = useState<Language>("en");
 
+  const handleLanguageChange = (newLanguage: Language) => {
+    setLanguage(newLanguage);
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -28,11 +32,11 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About language="en" />} />
-            <Route path="/privacy" element={<Privacy language="en" />} />
-            <Route path="/legal" element={<Legal language="en" />} />
-            <Route path="/contact" element={<Contact language="en" />} />
-            <Route path="/blog" element={<Blog language="en" />} />
+            <Route path="/about" element={<About language={language} />} />
+            <Route path="/privacy" element={<Privacy language={language} />} />
+            <Route path="/legal" element={<Legal language={language} />} />
+            <Route path="/contact" element={<Contact language={language} />} />
+            <Route path="/blog" element={<Blog language={language} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent language={language} />
