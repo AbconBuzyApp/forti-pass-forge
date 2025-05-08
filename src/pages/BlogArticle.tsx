@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import { useParams, Link } from "react-router-dom";
 import { getArticleBySlug } from "@/data/blogArticles";
 import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 
 interface BlogArticleProps {
   language: Language;
@@ -91,10 +92,11 @@ const BlogArticle = ({ language: initialLanguage }: BlogArticleProps) => {
                    "Generate a strong and secure password now with our free tool."}
                 </p>
                 <Link to="/">
-                  <Button className="bg-white text-fortipass-purple hover:bg-gray-100">
+                  <Button className="bg-white text-fortipass-purple hover:bg-gray-100 group">
                     {language === "fr" ? "Créer Un Mot de Passe Sécurisé" : 
                      language === "es" ? "Crear Una Contraseña Segura" : 
                      "Create A Secure Password"}
+                    <ArrowUpRight className="ml-1 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </Button>
                 </Link>
               </div>
