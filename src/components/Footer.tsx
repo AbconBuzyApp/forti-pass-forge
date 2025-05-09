@@ -11,7 +11,9 @@ const Footer = ({ language }: FooterProps) => {
     <footer className="w-full py-6 px-6 bg-white dark:bg-fortipass-charcoal dark:text-white border-t mt-auto">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-sm text-gray-500 dark:text-gray-400">
-          © 2025 - {language === "fr" ? "Site fondé par Acrad Conte" : language === "es" ? "Sitio fundado por Acrad Conte" : "Site founded by Acrad Conte"}
+          © 2025 - {language === "fr" ? "Tous droits réservés - Site fondé par Acrad Conte" : 
+                    language === "es" ? "Todos los derechos reservados - Sitio fundado por Acrad Conte" : 
+                    "All rights reserved - Site founded by Acrad Conte"}
         </div>
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Link to="/about" className="text-sm text-gray-500 dark:text-gray-400 hover:text-fortipass-purple dark:hover:text-fortipass-light-purple transition-colors">

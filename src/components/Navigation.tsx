@@ -51,34 +51,34 @@ const Navigation = ({ language }: NavigationProps) => {
   };
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-white dark:bg-fortipass-charcoal shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex justify-end py-4 md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="text-gray-700 dark:text-white">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-8">
-                <Link to="/" className="text-gray-700 hover:text-fortipass-purple">{getNavText("home")}</Link>
-                <Link to="/about" className="text-gray-700 hover:text-fortipass-purple">{getNavText("about")}</Link>
-                <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple">{getNavText("blog")}</Link>
-                <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple">{getNavText("privacy")}</Link>
-                <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple">{getNavText("legal")}</Link>
-                <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple">{getNavText("contact")}</Link>
+                <Link to="/" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("home")}</Link>
+                <Link to="/about" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("about")}</Link>
+                <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("blog")}</Link>
+                <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("privacy")}</Link>
+                <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("legal")}</Link>
+                <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("contact")}</Link>
               </div>
             </SheetContent>
           </Sheet>
         </div>
         <div className="hidden md:flex justify-center space-x-6 py-4">
-          <Link to="/" className="text-gray-700 hover:text-fortipass-purple">{getNavText("home")}</Link>
-          <Link to="/about" className="text-gray-700 hover:text-fortipass-purple">{getNavText("about")}</Link>
-          <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple">{getNavText("blog")}</Link>
-          <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple">{getNavText("privacy")}</Link>
-          <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple">{getNavText("legal")}</Link>
-          <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple">{getNavText("contact")}</Link>
+          <Link to="/" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("home")}</Link>
+          <Link to="/about" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("about")}</Link>
+          <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("blog")}</Link>
+          <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("privacy")}</Link>
+          <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("legal")}</Link>
+          <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("contact")}</Link>
         </div>
       </div>
     </nav>
