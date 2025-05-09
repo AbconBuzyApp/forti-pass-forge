@@ -67,7 +67,6 @@ const Navigation = ({ language }: NavigationProps) => {
                 <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("blog")}</Link>
                 <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("privacy")}</Link>
                 <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("legal")}</Link>
-                <Link to="/terms" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("terms")}</Link>
                 <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("contact")}</Link>
               </div>
             </SheetContent>
@@ -79,7 +78,6 @@ const Navigation = ({ language }: NavigationProps) => {
           <Link to="/blog" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("blog")}</Link>
           <Link to="/privacy" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("privacy")}</Link>
           <Link to="/legal" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("legal")}</Link>
-          <Link to="/terms" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("terms")}</Link>
           <Link to="/contact" className="text-gray-700 hover:text-fortipass-purple dark:text-gray-200 dark:hover:text-fortipass-light-purple">{getNavText("contact")}</Link>
         </div>
       </div>
