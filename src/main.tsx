@@ -6,12 +6,14 @@ import './index.css'
 // Set initial theme before render to prevent flickering
 const initTheme = () => {
   const storedTheme = localStorage.getItem("theme");
-  if (storedTheme === "dark") {
-    document.documentElement.classList.add("dark");
-  } else if (storedTheme === "light") {
+  if (storedTheme === "light") {
     document.documentElement.classList.remove("dark");
-  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  } else {
+    // Default to dark theme if no theme is stored or theme is dark
     document.documentElement.classList.add("dark");
+    if (!storedTheme) {
+      localStorage.setItem("theme", "dark");
+    }
   }
 };
 

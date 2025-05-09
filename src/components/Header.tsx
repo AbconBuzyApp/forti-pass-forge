@@ -12,14 +12,14 @@ interface HeaderProps {
 }
 
 const Header = ({ language, onLanguageChange }: HeaderProps) => {
-  // Theme state management
+  // Theme state management with dark as default
   const [theme, setTheme] = useState<"light" | "dark">(() => {
-    // Initialize theme from localStorage or system preference
+    // Initialize theme from localStorage or default to dark
     const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "light" || storedTheme === "dark") {
-      return storedTheme;
+    if (storedTheme === "light") {
+      return "light";
     }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    return "dark";
   });
 
   // Apply theme changes to document
