@@ -31,17 +31,19 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index language={language} onLanguageChange={handleLanguageChange} />} />
-            <Route path="/about" element={<About language={language} />} />
-            <Route path="/privacy" element={<Privacy language={language} />} />
-            <Route path="/legal" element={<Legal language={language} />} />
-            <Route path="/contact" element={<Contact language={language} />} />
-            <Route path="/blog" element={<Blog language={language} onLanguageChange={handleLanguageChange} />} />
-            <Route path="/blog/:slug" element={<BlogArticle language={language} />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <CookieConsent language={language} />
+          <div className="transition-colors duration-200 dark:bg-fortipass-charcoal">
+            <Routes>
+              <Route path="/" element={<Index language={language} onLanguageChange={handleLanguageChange} />} />
+              <Route path="/about" element={<About language={language} />} />
+              <Route path="/privacy" element={<Privacy language={language} />} />
+              <Route path="/legal" element={<Legal language={language} />} />
+              <Route path="/contact" element={<Contact language={language} />} />
+              <Route path="/blog" element={<Blog language={language} onLanguageChange={handleLanguageChange} />} />
+              <Route path="/blog/:slug" element={<BlogArticle language={language} />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <CookieConsent language={language} />
+          </div>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
