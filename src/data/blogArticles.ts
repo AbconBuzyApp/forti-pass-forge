@@ -22,6 +22,11 @@ export interface BlogArticle {
   keywords: string[];
 }
 
+// Add the getArticleBySlug function to find an article by its slug
+export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
+  return blogArticles.find(article => article.slug === slug);
+};
+
 export const blogArticles: BlogArticle[] = [
   {
     id: "1",
