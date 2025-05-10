@@ -26,13 +26,19 @@ const Blog = ({ language: initialLanguage, onLanguageChange }: BlogProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 6; // Nombre d'articles par page
   
+  // On met en avant le premier article comme article vedette
+  const featuredArticle = blogArticles[0];
+  
+  // On prend tous les articles sauf le premier (vedette) pour la pagination
+  const remainingArticles = blogArticles.slice(1);
+  
   // Calculer l'index de début et de fin pour la pagination
-  const indexOfLastArticle = currentPage * articlesPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = blogArticles.slice(1).slice(indexOfFirstArticle, indexOfLastArticle);
+  const indexOfFirstArticle = (currentPage - 1) * articlesPerPage;
+  const indexOfLastArticle = indexOfFirstArticle + articlesPerPage;
+  const currentArticles = remainingArticles.slice(indexOfFirstArticle, indexOfLastArticle);
   
   // Calculer le nombre total de pages
-  const totalPages = Math.ceil((blogArticles.length - 1) / articlesPerPage);
+  const totalPages = Math.ceil(remainingArticles.length / articlesPerPage);
   
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -79,11 +85,11 @@ const Blog = ({ language: initialLanguage, onLanguageChange }: BlogProps) => {
           
           {/* Display featured article */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 mb-10">
-            <h2 className="text-2xl font-bold mb-4 dark:text-white">{blogArticles[0].title[language]}</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-3">{blogArticles[0].date} | {blogArticles[0].author}</p>
-            <p className="text-gray-700 dark:text-gray-200 mb-6">{blogArticles[0].excerpt[language]}</p>
+            <h2 className="text-2xl font-bold mb-4 dark:text-white">{featuredArticle.title[language]}</h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-3">{featuredArticle.date} | {featuredArticle.author}</p>
+            <p className="text-gray-700 dark:text-gray-200 mb-6">{featuredArticle.excerpt[language]}</p>
             <div className="flex justify-between items-center">
-              <Link to={`/blog/${blogArticles[0].slug}`} className="text-fortipass-purple hover:text-fortipass-dark-purple font-medium">
+              <Link to={`/blog/${featuredArticle.slug}`} className="text-fortipass-purple hover:text-fortipass-dark-purple font-medium">
                 {language === "fr" ? "Lire l'article" : 
                  language === "es" ? "Leer artículo" : 
                  "Read article"}
@@ -96,7 +102,7 @@ const Blog = ({ language: initialLanguage, onLanguageChange }: BlogProps) => {
             </div>
           </div>
           
-          {/* Article list - Changed to show currentArticles instead of just .slice(1) */}
+          {/* Article list - Affiche les articles pour la page courante */}
           <div className="grid md:grid-cols-2 gap-6">
             {currentArticles.map(article => (
               <div key={article.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
