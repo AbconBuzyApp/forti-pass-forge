@@ -28,17 +28,17 @@ const BlogArticle = ({ language: initialLanguage }: BlogArticleProps) => {
 
   if (!article) {
     return (
-      <div className="flex flex-col min-h-screen bg-fortipass-soft-gray">
+      <div className="flex flex-col min-h-screen bg-fortipass-soft-gray dark:bg-fortipass-charcoal">
         <Header language={language} onLanguageChange={handleLanguageChange} />
         <Navigation language={language} />
         <main className="flex-grow container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl font-bold mb-6">
+            <h1 className="text-3xl font-bold mb-6 dark:text-white">
               {language === "fr" ? "Article Non Trouvé" : 
                language === "es" ? "Artículo No Encontrado" : 
                "Article Not Found"}
             </h1>
-            <p className="mb-8">
+            <p className="mb-8 dark:text-gray-200">
               {language === "fr" ? "L'article que vous cherchez n'existe pas." : 
                language === "es" ? "El artículo que estás buscando no existe." : 
                "The article you are looking for does not exist."}
@@ -58,28 +58,28 @@ const BlogArticle = ({ language: initialLanguage }: BlogArticleProps) => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-fortipass-soft-gray">
+    <div className="flex flex-col min-h-screen bg-fortipass-soft-gray dark:bg-fortipass-charcoal">
       <Header language={language} onLanguageChange={handleLanguageChange} />
       <Navigation language={language} />
       
       <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8">
+        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-sm p-8">
           <article>
-            <h1 className="text-4xl font-bold mb-4">{article.title[language]}</h1>
-            <div className="flex justify-between items-center text-gray-600 mb-8">
+            <h1 className="text-4xl font-bold mb-4 dark:text-white">{article.title[language]}</h1>
+            <div className="flex justify-between items-center text-gray-600 dark:text-gray-300 mb-8">
               <span>{article.date} | {article.author}</span>
               <div className="flex items-center">
                 {article.keywords.slice(0, 3).map((keyword, index) => (
-                  <span key={index} className="text-sm bg-gray-100 rounded-full px-3 py-1 mr-2">
+                  <span key={index} className="text-sm bg-gray-100 dark:bg-gray-700 rounded-full px-3 py-1 mr-2 dark:text-gray-200">
                     {keyword}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: article.content[language] }} />
+            <div className="prose prose-lg max-w-none dark:prose-invert dark:text-gray-200" dangerouslySetInnerHTML={{ __html: article.content[language] }} />
             
-            <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
               <div className="bg-fortipass-purple text-white rounded-lg p-6 text-center">
                 <h3 className="text-xl font-bold mb-3">
                   {language === "fr" ? "Protégez Vos Informations En Ligne" : 
