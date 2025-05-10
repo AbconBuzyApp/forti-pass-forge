@@ -7,6 +7,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { blogArticles } from "@/data/blogArticles";
 import { Button } from "@/components/ui/button";
+import { 
+  Pagination, 
+  PaginationContent, 
+  PaginationItem, 
+  PaginationLink, 
+  PaginationNext, 
+  PaginationPrevious 
+} from "@/components/ui/pagination";
 
 interface BlogProps {
   language: Language;
@@ -15,6 +23,21 @@ interface BlogProps {
 
 const Blog = ({ language: initialLanguage, onLanguageChange }: BlogProps) => {
   const [language, setLanguage] = useState<Language>(initialLanguage);
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 6; // Nombre d'articles par page
+  
+  // Calculer l'index de début et de fin pour la pagination
+  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+  const currentArticles = blogArticles.slice(1).slice(indexOfFirstArticle, indexOfLastArticle);
+  
+  // Calculer le nombre total de pages
+  const totalPages = Math.ceil((blogArticles.length - 1) / articlesPerPage);
+  
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
 
   const handleLanguageChange = (newLanguage: Language) => {
     setLanguage(newLanguage);
@@ -73,9 +96,9 @@ const Blog = ({ language: initialLanguage, onLanguageChange }: BlogProps) => {
             </div>
           </div>
           
-          {/* Article list */}
+          {/* Article list - Changed to show currentArticles instead of just .slice(1) */}
           <div className="grid md:grid-cols-2 gap-6">
-            {blogArticles.slice(1).map(article => (
+            {currentArticles.map(article => (
               <div key={article.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
                 <h3 className="text-xl font-bold mb-2 dark:text-white">{article.title[language]}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-2">{article.date} | {article.author}</p>
@@ -88,6 +111,43 @@ const Blog = ({ language: initialLanguage, onLanguageChange }: BlogProps) => {
               </div>
             ))}
           </div>
+          
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <Pagination className="mt-8">
+              <PaginationContent>
+                {currentPage > 1 && (
+                  <PaginationItem>
+                    <PaginationPrevious 
+                      onClick={() => handlePageChange(currentPage - 1)} 
+                      href="#"
+                    />
+                  </PaginationItem>
+                )}
+                
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <PaginationItem key={page}>
+                    <PaginationLink 
+                      onClick={() => handlePageChange(page)} 
+                      isActive={currentPage === page}
+                      href="#"
+                    >
+                      {page}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+                
+                {currentPage < totalPages && (
+                  <PaginationItem>
+                    <PaginationNext 
+                      onClick={() => handlePageChange(currentPage + 1)} 
+                      href="#"
+                    />
+                  </PaginationItem>
+                )}
+              </PaginationContent>
+            </Pagination>
+          )}
 
           {/* Call to Action */}
           <div className="bg-fortipass-purple text-white rounded-lg shadow-md p-8 my-12 text-center">
