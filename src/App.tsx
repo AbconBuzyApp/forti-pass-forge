@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Legal from "./pages/Legal";
+import Terms from "./pages/Terms";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
@@ -49,6 +50,7 @@ const App = () => {
               <Route path="/about" element={<About language={language} />} />
               <Route path="/privacy" element={<Privacy language={language} />} />
               <Route path="/legal" element={<Legal language={language} />} />
+              <Route path="/terms" element={<Terms language={language} />} />
               <Route path="/contact" element={<Contact language={language} />} />
               <Route path="/blog" element={<Blog language={language} onLanguageChange={handleLanguageChange} />} />
               <Route path="/blog/:slug" element={<BlogArticle language={language} />} />
